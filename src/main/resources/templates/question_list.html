@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>질문 목록</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<table border="2">
+    <thead>
+    <tr>
+        <th>번호</th><th>제목</th><th>작성일지</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="question : ${questionList}">
+        <th><span class="text-red-500" th:text="${question.id}"></span></th>
+        <td>
+            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+        </td>
+        <td><span class="bg-red-300 hover:bg-sky-700" th:text="${question.createDate}"></span></td>
+    </tr>
+    </tbody>
+</table>
+</html>
